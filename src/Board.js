@@ -73,19 +73,17 @@ class Board extends Component {
       let hasWon = this.state.hasWon;
     let [y, x] = coord.split("-").map(Number);
     flipCell(y, x)
+    flipCell(y-1, x)
+    flipCell(y+1, x)
+    flipCell(y, x-1)
+    flipCell(y, x+1)
 
     function flipCell(y, x) {
       // if this coord is actually on board, flip it
-      console.log("entra")
 
       if ((x >= 0 && x < ncols && y >= 0 && y < nrows)) {
         board[y][x] = !board[y][x];
-      
       }
-      ((x+1 >= 0 && x+1< ncols && y >= 0 && y < nrows)) && (board[y][x + 1] = !board[y][x + 1]);
-      ((x-1 >= 0 && x-1< ncols && y >= 0 && y < nrows)) && (board[y][x - 1] = !board[y][x - 1]);
-       ((x >= 0 && x < ncols && y+1 >= 0 && y+1 < nrows)) && (board[y+1][x] = !board[y+1][x]);
-       ((x >= 0 && x < ncols && y-1 >= 0 && y-1 < nrows)) && (board[y-1][x] = !board[y-1][x]);
 
     }
 
